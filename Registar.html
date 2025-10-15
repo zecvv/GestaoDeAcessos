@@ -1,195 +1,336 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Formulário de cadastro na plataforma de desenvolvimento web. Inscreva-se e escolha sua área de interesse.">
-  <meta name="keywords" content="cadastro, plataforma, desenvolvimento web, frontend, backend, fullstack">
-  <title>Registar Colaborador/Visitante</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <!-- Print styles: esconde formulário, navbar, footer e botão de imprimir -->
-  <style>
-    @media print {
-      nav,
-      form,
-      footer,
-      #btn-imprimir {
-        display: none !important;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Formulário de cadastro na plataforma de desenvolvimento web. Inscreva-se e escolha sua área de interesse."/>
+    <meta name="keywords" content="cadastro, plataforma, desenvolvimento web, frontend, backend, fullstack"/>
+
+    <title>Registar Colaborador/Visitante</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet" />
+    <!-- Print styles: esconde formulário, navbar, footer e botão de imprimir -->
+    <style>
+      @media print {
+        nav,
+        form,
+        footer,
+        #btn-imprimir {
+          display: none !important;
+        }
       }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-      <a class="navbar-brand" href="#">API Cartões</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Início</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="Registar.html">Registar</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Consultar.html">Consultar</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main -->
-  <main class="container-fluid min-vh-100 d-flex justify-content-center align-items-center bg-light">
-    <section class="col-12 col-md-8 col-lg-6">
-      <div class="card shadow-lg border-0 p-4">
-        <div class="card-body">
-          <h2 class="text-primary mb-4">Registo de Acessos</h2>
-          <form id="colaborador-form" class="needs-validation" novalidate>
-            
-            <div class="row gy-4 mb-4">
-              <div class="col-md-6">
-                <label for="tipo-registo" class="form-label fw-semibold">Tipo de Registo</label>
-                <select id="tipo-registo" class="form-select" required>
-                  <option value="colaborador" selected>Colaborador</option>
-                  <option value="visitante">Visitante</option>
-                </select>
-                <div class="invalid-feedback">Por favor selecione o tipo.</div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <label for="nome" class="form-label fw-semibold">Nome completo</label>
-              <input type="text" id="nome" name="nome" class="form-control" placeholder="ex: Carlos Silva" required>
-              <div class="invalid-feedback">Por favor insira o nome.</div>
-            </div>
-
-            <div class="mb-3">
-              <label for="email" class="form-label fw-semibold">Email</label>
-              <input type="email" id="email" name="email" class="form-control" placeholder="ex: mail@sapo.pt" required>
-              <div class="invalid-feedback">Por favor insira o email.</div>
-            </div>
-
-            <div class="mb-3 d-none" data-role="visitante">
-              <label for="motivo-visita" class="form-label fw-semibold">Motivo da Visita</label>
-              <textarea id="motivo-visita" name="motivoVisita" rows="4" class="form-control" placeholder="ex: Reunião com RH"></textarea>
-              <div class="invalid-feedback">Por favor indique o motivo da visita.</div>
-            </div>
-
-            <div class="row mb-3" data-role="colab">
-              <div class="col-md-6">
-                <label for="colab-cargo" class="form-label fw-semibold">Cargo</label>
-                <input type="text" id="colab-cargo" name="cargo" class="form-control" placeholder="ex: Assistente" required>
-                <div class="invalid-feedback">Por favor insira o cargo.</div>
-              </div>
-              <div class="col-md-6">
-                <label for="colab-dept" class="form-label fw-semibold">Departamento</label>
-                <input type="text" id="colab-dept" name="departamento" class="form-control" placeholder="ex: Produção" required>
-                <div class="invalid-feedback">Por favor insira o departamento.</div>
-              </div>
-            </div>
-            <div class="mb-3 salas-group d-flex align-items-center">
-  <label class="form-label fw-semibold mb-0 me-3">Salas de Acesso</label>
-  <div class="d-flex flex-wrap gap-2 checkbox-container">
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="salas-1" name="salas" value="Sala 1">
-      <label class="form-check-label" for="salas-1">Sala 1</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="salas-2" name="salas" value="Sala 2">
-      <label class="form-check-label" for="salas-2">Sala 2</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="salas-3" name="salas" value="Sala 3">
-      <label class="form-check-label" for="salas-3">Sala 3</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="salas-4" name="salas" value="Sala 4">
-      <label class="form-check-label" for="salas-4">Sala 4</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="salas-5" name="salas" value="Sala 5">
-      <label class="form-check-label" for="salas-5">Sala 5</label>
-    </div>
-  </div>
-  <div class="invalid-feedback ms-auto">
-    Por favor selecione pelo menos uma sala.
-  </div>
-</div>
-
-
-
-            <div class="row mb-4">
-              <div class="col-md-6">
-                <label for="data-inicio" class="form-label fw-semibold">Data de Início</label>
-                <input type="date" id="data-inicio" name="dataInicio" class="form-control" required>
-                <div class="invalid-feedback">Por favor selecione a data de início.</div>
-              </div>
-              <div class="col-md-6">
-                <label for="data-fim" class="form-label fw-semibold">Data de Fim</label>
-                <input type="date" id="data-fim" name="dataFim" class="form-control" required>
-                <div class="invalid-feedback">Por favor selecione a data de fim.</div>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Registar e Gerar Cartão</button>
-          </form>
+    </style>
+    
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="#">API Cartões</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Início</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Registar.html">Registar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Consultar.html">Consultar</a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
-      <!-- Cartão de confirmação -->
-      <div id="card" class="card mt-4 d-none" aria-live="polite">
-        <div class="card-body d-flex flex-column flex-md-row align-items-center gap-4">
-          <div class="flex-grow-1">
-            <p class="mb-1"><strong>Nome:</strong> <span id="card-nome"></span></p>
-            <p class="mb-1"><strong>Email:</strong> <span id="card-email"></span></p>
-            <p class="mb-1"><strong>Tipo:</strong> <span id="card-tipo"></span></p>
-            <p class="mb-1"><strong>Data de Início:</strong> <span id="card-inicio"></span></p>
-            <p class="mb-1"><strong>Data de Fim:</strong> <span id="card-fim"></span></p>
+    <!-- Main -->
+    <main
+      class="container-fluid min-vh-100 d-flex justify-content-center align-items-center bg-light"
+    >
+      <section class="col-12 col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 p-4">
+          <div class="card-body">
+            <h2 class="text-primary mb-4">Registo de Acessos</h2>
+            <form id="colaborador-form" class="needs-validation" novalidate>
+              <div class="row gy-4 mb-4">
+                <div class="col-md-6">
+                  <label for="tipo-registo" class="form-label fw-semibold"
+                    >Tipo de Registo</label
+                  >
+                  <select id="tipo-registo" class="form-select" required>
+                    <option value="colaborador" selected>Colaborador</option>
+                    <option value="visitante">Visitante</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor selecione o tipo.
+                  </div>
+                </div>
+              </div>
 
-            <div id="colaborador-card" data-role="colab-card">
-              <p class="mb-1"><strong>Cargo:</strong> <span id="card-cargo"></span></p>
-              <p class="mb-1"><strong>Departamento:</strong> <span id="card-depto"></span></p>
-              <p class="mb-1">
-                <strong>Salas de Acesso:</strong>
-                <span class="card-salas"></span>
-              </p>
-            </div>
+              <div class="mb-3">
+                <label for="nome" class="form-label fw-semibold"
+                  >Nome completo</label
+                >
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  class="form-control"
+                  placeholder="ex: Carlos Silva"
+                  required
+                />
+                <div class="invalid-feedback">Por favor insira o nome.</div>
+              </div>
 
-            <div id="visitante-card" data-role="visitante-card" class="d-none">
-              <p class="mb-1"><strong>Motivo da Visita:</strong> <span id="card-motivo"></span></p>
-              <p class="mb-1">
-                <strong>Salas de Acesso:</strong>
-                <span class="card-salas"></span>
-              </p>
-            </div>
+              <div class="mb-3">
+                <label for="email" class="form-label fw-semibold">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="ex: mail@sapo.pt"
+                  required
+                />
+                <div class="invalid-feedback">Por favor insira o email.</div>
+              </div>
+
+              <div class="mb-3 d-none" data-role="visitante">
+                <label for="motivo-visita" class="form-label fw-semibold"
+                  >Motivo da Visita</label
+                >
+                <textarea
+                  id="motivo-visita"
+                  name="motivoVisita"
+                  rows="4"
+                  class="form-control"
+                  placeholder="ex: Reunião com RH"
+                ></textarea>
+                <div class="invalid-feedback">
+                  Por favor indique o motivo da visita.
+                </div>
+              </div>
+
+              <div class="row mb-3" data-role="colab">
+                <div class="col-md-6">
+                  <label for="colab-cargo" class="form-label fw-semibold"
+                    >Cargo</label
+                  >
+                  <input
+                    type="text"
+                    id="colab-cargo"
+                    name="cargo"
+                    class="form-control"
+                    placeholder="ex: Assistente"
+                    required
+                  />
+                  <div class="invalid-feedback">Por favor insira o cargo.</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="colab-dept" class="form-label fw-semibold"
+                    >Departamento</label
+                  >
+                  <input
+                    type="text"
+                    id="colab-dept"
+                    name="departamento"
+                    class="form-control"
+                    placeholder="ex: Produção"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Por favor insira o departamento.
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 salas-group d-flex align-items-center">
+                <label class="form-label fw-semibold mb-0 me-3"
+                  >Salas de Acesso</label
+                >
+                <div class="d-flex flex-wrap gap-2 checkbox-container">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="salas-1"
+                      name="salas"
+                      value="Sala 1"
+                    />
+                    <label class="form-check-label" for="salas-1">Sala 1</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="salas-2"
+                      name="salas"
+                      value="Sala 2"
+                    />
+                    <label class="form-check-label" for="salas-2">Sala 2</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="salas-3"
+                      name="salas"
+                      value="Sala 3"
+                    />
+                    <label class="form-check-label" for="salas-3">Sala 3</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="salas-4"
+                      name="salas"
+                      value="Sala 4"
+                    />
+                    <label class="form-check-label" for="salas-4">Sala 4</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="salas-5"
+                      name="salas"
+                      value="Sala 5"
+                    />
+                    <label class="form-check-label" for="salas-5">Sala 5</label>
+                  </div>
+                </div>
+                <div class="invalid-feedback ms-auto">
+                  Por favor selecione pelo menos uma sala.
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-md-6">
+                  <label for="data-inicio" class="form-label fw-semibold">Data de Início</label>
+                  <input
+                    type="date"
+                    id="data-inicio"
+                    name="dataInicio"
+                    class="form-control"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Por favor selecione a data de início.
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="data-fim" class="form-label fw-semibold"
+                    >Data de Fim</label
+                  >
+                  <input
+                    type="date"
+                    id="data-fim"
+                    name="dataFim"
+                    class="form-control"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Por favor selecione a data de fim.
+                  </div>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Registar e Gerar Cartão
+              </button>
+            </form>
           </div>
-
-          <div id="qr-code" class="qr-code" aria-label="QR Code do registo"></div>
-          <button id="btn-imprimir" class="btn btn-outline-secondary mt-3">Imprimir Cartão</button>
         </div>
+
+        <!-- Cartão de confirmação -->
+        <div id="card" class="card mt-4 d-none" aria-live="polite">
+          <div
+            class="card-body d-flex flex-column flex-md-row align-items-center gap-4"
+          >
+            <div class="flex-grow-1">
+              <p class="mb-1">
+                <strong>Nome:</strong> <span id="card-nome"></span>
+              </p>
+              <p class="mb-1">
+                <strong>Email:</strong> <span id="card-email"></span>
+              </p>
+              <p class="mb-1">
+                <strong>Tipo:</strong> <span id="card-tipo"></span>
+              </p>
+              <p class="mb-1">
+                <strong>Data de Início:</strong> <span id="card-inicio"></span>
+              </p>
+              <p class="mb-1">
+                <strong>Data de Fim:</strong> <span id="card-fim"></span>
+              </p>
+
+              <div id="colaborador-card" data-role="colab-card">
+                <p class="mb-1">
+                  <strong>Cargo:</strong> <span id="card-cargo"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Departamento:</strong> <span id="card-depto"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Salas de Acesso:</strong>
+                  <span class="card-salas"></span>
+                </p>
+              </div>
+
+              <div
+                id="visitante-card"
+                data-role="visitante-card"
+                class="d-none"
+              >
+                <p class="mb-1">
+                  <strong>Motivo da Visita:</strong>
+                  <span id="card-motivo"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Salas de Acesso:</strong>
+                  <span class="card-salas"></span>
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="qr-code"
+              class="qr-code"
+              aria-label="QR Code do registo"
+            ></div>
+            <button id="btn-imprimir" class="btn btn-outline-secondary mt-3">
+              Imprimir Cartão
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-light text-center py-3">
+      <div class="container">
+        <small
+          >&copy; 2025 Gestão de Acessos - Desenvolvido por José
+          Gonçalves</small
+        >
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="bg-primary text-light text-center py-3">
-    <div class="container">
-      <small>&copy; 2025 Gestão de Acessos - Desenvolvido por José Gonçalves</small>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="js/gerarQrCode.js"></script>
-  <script src="js/Registar.js"></script>
-</body>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="js/gerarQrCode.js"></script>
+    <script src="js/Registar.js"></script>
+  </body>
 </html>

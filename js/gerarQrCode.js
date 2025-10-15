@@ -6,6 +6,6 @@ window.gerarQRCode = function (container, dados) {
     text: JSON.stringify(dados),
     width: 180,
     height: 180,
-    correctLevel: QRCode.CorrectLevel.L
+    correctLevel: QRCode.CorrectLevel.L,
   });
 };
