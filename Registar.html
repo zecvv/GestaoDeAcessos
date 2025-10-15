@@ -225,78 +225,35 @@
         </div>
 
         <!-- Cartão de confirmação -->
-        <section class="col-12 col-md-8 col-lg-6">
-          <div
-            id="card"
-            class="card shadow-lg border-0 p-4 mt-4 d-none w-100"
-            aria-live="polite"
-          >
-            <div
-              class="card-body d-flex flex-column flex-md-row justify-content-between align-items-start gap-md-5"
-            >
+         <div class="row justify-content-center">
+          <div id="card" class="card shadow-lg border-0 p-4 mt-4 w-100 d-none">
+            <div class="card-body d-flex flex-column flex-md-row justify-content-between align-items-start gap-4 gap-md-5">
               <div class="mb-4 mb-md-0 flex-grow-1">
-                <p class="mb-1">
-                  <strong>Nome:</strong> <span id="card-nome"></span>
-                </p>
-                <p class="mb-1">
-                  <strong>Email:</strong> <span id="card-email"></span>
-                </p>
-                <p class="mb-1">
-                  <strong>Tipo:</strong> <span id="card-tipo"></span>
-                </p>
-                <p class="mb-1">
-                  <strong>Data de Início:</strong>
-                  <span id="card-inicio"></span>
-                </p>
-                <p class="mb-1">
-                  <strong>Data de Fim:</strong> <span id="card-fim"></span>
-                </p>
+                <p class="mb-1"><strong>Nome:</strong> <span id="card-nome"></span></p>
+                <p class="mb-1"><strong>Email:</strong> <span id="card-email"></span></p>
+                <p class="mb-1"><strong>Tipo:</strong> <span id="card-tipo"></span></p>
+                <p class="mb-1"><strong>Data de Início:</strong><span id="card-inicio"></span></p>
+                <p class="mb-1"><strong>Data de Fim:</strong> <span id="card-fim"></span></p>
 
                 <div id="colaborador-card" data-role="colab-card">
-                  <p class="mb-1">
-                    <strong>Cargo:</strong> <span id="card-cargo"></span>
-                  </p>
-                  <p class="mb-1">
-                    <strong>Departamento:</strong> <span id="card-depto"></span>
-                  </p>
-                  <p class="mb-1">
-                    <strong>Salas de Acesso:</strong
-                    ><span class="card-salas"></span>
-                  </p>
+                  <p class="mb-1"><strong>Cargo:</strong> <span id="card-cargo"></span></p>
+                  <p class="mb-1"><strong>Departamento:</strong> <span id="card-depto"></span></p>
+                  <p class="mb-1"><strong>Salas de Acesso:</strong><span class="card-salas"></span></p>
                 </div>
 
-                <div
-                  id="visitante-card"
-                  data-role="visitante-card"
-                  class="d-none"
-                >
-                  <p class="mb-1">
-                    <strong>Motivo da Visita:</strong
-                    ><span id="card-motivo"></span>
-                  </p>
-                  <p class="mb-1">
-                    <strong>Salas de Acesso:</strong
-                    ><span class="card-salas"></span>
-                  </p>
+                <div id="visitante-card"data-role="visitante-card" class="d-none">
+                  <p class="mb-1"><strong>Motivo da Visita:</strong><span id="card-motivo"></span></p>
+                  <p class="mb-1"><strong>Salas de Acesso:</strong><span class="card-salas"></span></p>
                 </div>
-              </div>
-
-              <div class="d-flex flex-column align-items-center">
-                <div
-                  id="qr-code"
-                  class="qr-code mb-3"
-                  aria-label="QR Code do registo"
-                ></div>
-                <button
-                  id="btn-imprimir"
-                  class="btn btn-outline-secondary mt-3"
-                >
-                  Imprimir Cartão
-                </button>
+              
+                <div class="d-flex flex-column align-items-center">
+                  <div id="qr-code" class="qr-code mb-4 lg-6" aria-label="QR Code do registo"></div>
+                  <button id="btn-imprimir" class="btn btn-outline-secondary mt-3">Imprimir Cartão</button>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </main>
 

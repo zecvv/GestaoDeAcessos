@@ -138,3 +138,10 @@ select.form-select:focus {
     align-items: flex-start !important
   }
 }
+
+#card {
+  margin-top: 50px;
+  width: 100% !important;
+  max-width: none !important;
+}
+
