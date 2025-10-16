@@ -145,3 +145,21 @@ select.form-select:focus {
   max-width: none !important;
 }
 
+/* 1. Permitir que o texto quebre naturalmente */
+.navbar-brand {
+  white-space: normal;      
+  overflow: visible;        
+  text-overflow: unset;      
+  word-break: break-word;    
+}
+
+.navbar {
+  flex-wrap: wrap;          
+}
+
+
+.navbar-collapse {
+  flex-basis: 100%;       
+}
+
+
